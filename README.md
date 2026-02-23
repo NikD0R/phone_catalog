@@ -17,9 +17,9 @@ Phone Catalog is a modern e-commerce application for viewing and selecting mobil
 ## 🛠 Technologies Used
 
   ### Core
-      - React — UI framework
-      - TypeScript — Type safety
-      - SCSS — Styling and pre-processing
+    - React — UI framework
+    - TypeScript — Type safety
+    - SCSS — Styling and pre-processing
 
   ### UI/UX
       - React Router — Navigation and routing
