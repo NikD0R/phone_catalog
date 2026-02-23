@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/effect-fade';
 import 'swiper/css/pagination';
 import 'swiper/css';
+import { Link } from 'react-router-dom';
 
 export const Slider = () => {
   return (
@@ -43,9 +44,9 @@ export const Slider = () => {
                     />
                   </h3>
                   <p className={styles.slide__text}>Be the first!</p>
-                  <a className={styles.slide__link} href="#">
+                  <Link className={styles.slide__link} to="/phones/apple-iphone-14-pro-1tb-spaceblack">
                     Order now
-                  </a>
+                  </Link>
                 </div>
                 <div className={styles.slide__image}>
                   <div className={styles['slide__img-box']}>
@@ -98,9 +99,9 @@ export const Slider = () => {
                     />
                   </h3>
                   <p className={styles.slide__text}>Be the first!</p>
-                  <a className={styles.slide__link} href="#">
+                  <Link className={styles.slide__link} to="/phones/apple-iphone-14-pro-1tb-spaceblack">
                     Order now
-                  </a>
+                  </Link>
                 </div>
                 <div className={styles.slide__image}>
                   <div className={styles['slide__img-box']}>
@@ -153,9 +154,9 @@ export const Slider = () => {
                     />
                   </h3>
                   <p className={styles.slide__text}>Be the first!</p>
-                  <a className={styles.slide__link} href="#">
+                  <Link className={styles.slide__link} to="/phones/apple-iphone-14-pro-1tb-spaceblack">
                     Order now
-                  </a>
+                  </Link>
                 </div>
                 <div className={styles.slide__image}>
                   <div className={styles['slide__img-box']}>
