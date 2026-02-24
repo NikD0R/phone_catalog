@@ -16,19 +16,19 @@ export const Footer = () => {
           <nav className="footer__nav">
             <ul className={styles.footer__list}>
               <li className="footer__item">
-                <a className={styles.footer__link} href="#">
+                <a className={styles.footer__link} href="https://github.com/">
                   Github
                 </a>
               </li>
               <li className="footer__item">
-                <a className={styles.footer__link} href="#">
+                <Link className={styles.footer__link} to="/contacts">
                   Contacts
-                </a>
+                </Link>
               </li>
               <li className="footer__item">
-                <a className={styles.footer__link} href="#">
+                <Link className={styles.footer__link} to="/rights">
                   Rights
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -36,12 +36,14 @@ export const Footer = () => {
             <button
               className={styles['footer__go-back-link']}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              title="Scroll to top's page"
             >
               Back to top
             </button>
             <button
               className={styles['footer__go-back-btn']}
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              title="Scroll to top's page"
             >
               <img
                 className="footer__go-back-img"

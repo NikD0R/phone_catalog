@@ -1,0 +1,143 @@
+@import '../../styles/utils';
+
+.contact {
+  padding-block: 70px;
+
+  @include on-phone {
+    padding-block: 50px;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    @extend %mont-600;
+
+    color: $nav-color;
+    margin-bottom: 40px;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__form {
+    background-color: $card-color;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  &__input {
+    padding: 10px 14px;
+    border: 1px solid #3B3E4A;
+    background-color: transparent;
+    color: $main-color;
+    font-size: 14px;
+    transition: border 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+    }
+  }
+
+  &__input--error {
+    border-color: #b91c1c;
+  }
+
+  &__error-text {
+    color: #b91c1c;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  &__button {
+    background-color: $accent-color;
+    color: $main-color;
+    width: 100%;
+    padding-block: 10px;
+    padding-inline: 13px;
+    border: none;
+    cursor: pointer;
+
+    @include hover(background-color, $hover-main-btn-color);
+  }
+
+  &__status {
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+
+    &--success {
+      background-color: #e6f9f0;
+      color: #15803d;
+    }
+
+    &--error {
+      background-color: #fdecea;
+      color: #b91c1c;
+    }
+  }
+
+  &__info {
+    background-color: $card-color;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__info-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__info-item {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info-label {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 4px;
+  }
+
+  &__info-address {
+    color: $main-color;
+  }
+
+  &__info-link {
+    color: $main-color;
+
+    @include hover(color, $accent-color);
+  }
+}

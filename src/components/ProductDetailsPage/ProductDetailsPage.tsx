@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { NavLink, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Breadcrumbs } from '../Breadcrumbs';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getProductById } from '../../api';
 import { ProductDetails } from '../../types/ProductsDetails';
 import { CategoryType } from '../../types/Category';
@@ -22,13 +22,23 @@ export const ProductDetailsPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const category = location.pathname.split('/')[1];
+  const prevBaseRef = useRef<string | null>(null);
 
   const [product, setProduct] = useState<ProductDetails | null>(null);
   const [isError, setIsError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
+    if (!productId) return;
+
+    const parts = productId.split('-');
+    const newBase = parts.slice(0, 3).join('-');
+    const isSameBase = prevBaseRef.current === newBase && !!product;
+
+    if (!isSameBase) {
+      setIsLoading(true);
+    }
+
     setIsError('');
 
     getProductById(category as CategoryType)
@@ -37,10 +47,19 @@ export const ProductDetailsPage = () => {
           (item: ProductDetails) => item.id === productId,
         );
 
-        setProduct(productDetail);
+        setProduct(productDetail || null);
       })
-      .catch(() => setIsError('Product was not found'))
-      .finally(() => setIsLoading(false));
+      .catch(() => {
+        setIsError('Product was not found');
+        setProduct(null);
+      })
+      .finally(() => {
+        if (!isSameBase) {
+          setIsLoading(false);
+        }
+
+        prevBaseRef.current = newBase;
+      });
   }, [category, productId]);
 
   const { toggleFavorite, isFavorite } = useFavorites();
@@ -108,6 +127,7 @@ export const ProductDetailsPage = () => {
             <div className={styles['product-details__box']}>
               <div className={styles['product-details__slider-wrapper']}>
                 <Swiper
+                  key={product.id} 
                   slidesPerView={1}
                   modules={[Pagination]}
                   breakpoints={{

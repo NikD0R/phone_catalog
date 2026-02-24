@@ -118,6 +118,12 @@
     letter-spacing: 0;
     padding: 20px 55px;
     margin-top: 50px;
+    transition: color 0.4s, border-color 0.4s;
+
+    &:hover {
+      color: $accent-color;
+      border-color: $accent-color;
+    }
 
     @include on-desktop {
       margin-top: 0;
