@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from 'react';
 import styles from './ContactPage.module.scss';
 
 interface FormData {
@@ -50,12 +50,12 @@ export const ContactPage = () => {
 
     setStatus(null);
 
-    setFormData((prev) => ({
+    setFormData(prev => ({
       ...prev,
       [name]: value,
     }));
 
-    setErrors((prev) => ({
+    setErrors(prev => ({
       ...prev,
       [name]: '',
     }));
@@ -65,6 +65,7 @@ export const ContactPage = () => {
     e.preventDefault();
 
     const validationErrors = validate();
+
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) {
@@ -72,6 +73,7 @@ export const ContactPage = () => {
         type: 'error',
         message: 'Please enter correct data',
       });
+
       return;
     }
 
@@ -83,7 +85,9 @@ export const ContactPage = () => {
     setFormData({ name: '', email: '' });
     setErrors({});
 
-    if (timerRef.current) clearTimeout(timerRef.current);
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
 
     timerRef.current = setTimeout(() => {
       setStatus(null);
@@ -96,24 +100,28 @@ export const ContactPage = () => {
       <div className="container">
         <h2 className="title">Contact Us</h2>
         <p className={styles.contact__subtitle}>
-          Have a question about a product or found an issue? Leave your name and email and we will get back to you as soon as possible.
+          Have a question about a product or found an issue? Leave your name and
+          email and we will get back to you as soon as possible.
         </p>
 
         <div className={styles.contact__content}>
           <form onSubmit={handleSubmit} className={styles.contact__form}>
             {status && (
               <div
-                className={`${styles.contact__status} ${status.type === 'success'
-                  ? styles['contact__status--success']
-                  : styles['contact__status--error']
-                  }`}
+                className={`${styles.contact__status} ${
+                  status.type === 'success'
+                    ? styles['contact__status--success']
+                    : styles['contact__status--error']
+                }`}
               >
                 {status.message}
               </div>
             )}
 
             <div className={styles.contact__field}>
-              <label className={styles.contact__label}>Name</label>
+              <label className={styles.contact__label} htmlFor="name">
+                Name
+              </label>
               <input
                 type="text"
                 name="name"
@@ -131,7 +139,9 @@ export const ContactPage = () => {
             </div>
 
             <div className={styles.contact__field}>
-              <label className={styles.contact__label}>Email</label>
+              <label className={styles.contact__label} htmlFor="email">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -158,21 +168,33 @@ export const ContactPage = () => {
 
             <div className={styles['contact__info-item']}>
               <span className={styles['contact__info-label']}>Address:</span>
-              <p className={styles['contact__info-address']}>123 Main Street, Kyiv, Ukraine</p>
+              <p className={styles['contact__info-address']}>
+                123 Main Street, Kyiv, Ukraine
+              </p>
             </div>
 
             <div className={styles['contact__info-item']}>
               <span className={styles['contact__info-label']}>Phone:</span>
-              <a className={styles['contact__info-link']} href="tel:+380441234567">+38 (044) 123-4567</a>
+              <a
+                className={styles['contact__info-link']}
+                href="tel:+380441234567"
+              >
+                +38 (044) 123-4567
+              </a>
             </div>
 
             <div className={styles['contact__info-item']}>
               <span className={styles['contact__info-label']}>Email:</span>
-              <a className={styles['contact__info-link']} href="mailto:store@example.com">store@example.com</a>
+              <a
+                className={styles['contact__info-link']}
+                href="mailto:store@example.com"
+              >
+                nicegadgets@gmail.com
+              </a>
             </div>
           </aside>
         </div>
       </div>
     </section>
   );
-}
+};
