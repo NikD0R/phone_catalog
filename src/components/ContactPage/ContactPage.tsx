@@ -187,7 +187,7 @@ export const ContactPage = () => {
               <span className={styles['contact__info-label']}>Email:</span>
               <a
                 className={styles['contact__info-link']}
-                href="mailto:store@example.com"
+                href="mailto:nicegadgets@gmail.com"
               >
                 nicegadgets@gmail.com
               </a>
