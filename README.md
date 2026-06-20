@@ -1,4 +1,4 @@
-# 📱 Phone Catalog
+# 📱 Nice Gadgets
 Phone Catalog is a modern e-commerce application for viewing and selecting mobile devices. The project was created to demonstrate skills in building complex interfaces with filtering, sorting, and shopping carts, ensuring flawless UX on any device.
 
 
